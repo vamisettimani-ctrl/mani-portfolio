@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import IntroScene from './intro-scene'
 import { ArrowUpRight, Check, Download, Mail, Menu, Moon, X, Sun, Copy, ExternalLink, Code2, BriefcaseBusiness } from 'lucide-react'
 
 const email = 'vamisettimani@gmail.com'
@@ -15,6 +16,9 @@ export default function Portfolio() {
   const [dark, setDark] = useState(true)
   const [copied, setCopied] = useState(false)
   const [activeProject, setActiveProject] = useState<(typeof projects)[number] | null>(null)
+  const [introVisible, setIntroVisible] = useState(true)
+  const [formStatus, setFormStatus] = useState('')
+  const submitContact = async (event: React.FormEvent<HTMLFormElement>) => { event.preventDefault(); setFormStatus('Sending...'); const form = new FormData(event.currentTarget); const response = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(Object.fromEntries(form)) }); setFormStatus(response.ok ? 'Message sent successfully.' : 'Delivery is not configured yet. Please use the email button.'); if (response.ok) event.currentTarget.reset() }
 
   const copyEmail = async () => {
     await navigator.clipboard?.writeText(email)
@@ -25,6 +29,7 @@ export default function Portfolio() {
   const nav = ['About', 'Work', 'Skills', 'Contact']
   return (
     <div className={dark ? 'portfolio dark' : 'portfolio light'}>
+      {introVisible && <IntroScene onEnter={() => setIntroVisible(false)} />}
       <header className="site-header">
         <a href="#top" className="monogram" aria-label="Back to top">MSS<span>.</span></a>
         <nav className={menuOpen ? 'nav-links open' : 'nav-links'} aria-label="Primary navigation">
@@ -62,7 +67,7 @@ export default function Portfolio() {
 
         <section id="skills" className="skills page-section split-section"><div className="section-label"><span>03</span><span>Capabilities</span></div><div className="section-content"><h2>Tools for<br /><em>making things work.</em></h2><div className="skill-grid"><div><small>01 / Languages</small><p>C++<br />Python<br />C<br />HTML · CSS · JavaScript</p></div><div><small>02 / Tools & platforms</small><p>Git & GitHub<br />VS Code<br />Figma<br />MySQL</p></div><div><small>03 / Strengths</small><p>Problem-solving<br />Project management<br />Adaptability</p></div><div><small>04 / Certificates</small><p>Introduction to Artificial Intelligence<br />C Language · Learn Vern<br />Introduction to C++<br />Leadership Management</p></div></div><div className="education-note"><small>Education</small><p>B.Tech Computer Science & Engineering<br />Lovely Professional University · CGPA 8.2<br />2025 — Present</p></div></div></section>
 
-        <section id="contact" className="contact page-section"><div className="section-label"><span>04</span><span>Start a conversation</span></div><div className="contact-content"><h2>Have an idea?<br /><em>Let&apos;s make it real.</em></h2><p>Whether it&apos;s a project, an opportunity, or just a good conversation about technology — my inbox is open.</p><div className="contact-actions"><a className="primary-button" href={`mailto:${email}`}>Send me an email <Mail size={17} /></a><button className="copy-button" onClick={copyEmail}>{copied ? <Check size={16} /> : <Copy size={16} />} {copied ? 'Email copied' : 'Copy email'}</button></div></div></section>
+        <section id="contact" className="contact page-section"><div className="section-label"><span>04</span><span>Start a conversation</span></div><div className="contact-content"><h2>Have an idea?<br /><em>Let&apos;s make it real.</em></h2><p>Whether it&apos;s a project, an opportunity, or just a good conversation about technology — my inbox is open.</p><form className="contact-form" onSubmit={submitContact}><input name="name" placeholder="Your name" required aria-label="Your name" /><input name="email" type="email" placeholder="Your email" required aria-label="Your email" /><textarea name="message" placeholder="Tell me about your idea" required aria-label="Your message" rows={4} /><button className="primary-button" type="submit">{formStatus || 'Send message'} <Mail size={17} /></button></form><div className="contact-actions"><a className="text-link" href={`mailto:${email}`}>Open your email app <ArrowUpRight size={15} /></a><button className="copy-button" onClick={copyEmail}>{copied ? <Check size={16} /> : <Copy size={16} />} {copied ? 'Email copied' : 'Copy email'}</button></div></div></section>
       </main>
 
       <footer><span>© {new Date().getFullYear()} Mani Sai Sudheer</span><span>Designed & built with intent.</span><div className="socials"><a href="https://github.com/vamisettimani-ctrl" target="_blank" rel="noreferrer" aria-label="GitHub"><Code2 size={17} /></a><a href="https://www.linkedin.com/in/mani-sai-sudheer-vamisetti/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><BriefcaseBusiness size={17} /></a><a href={`mailto:${email}`} aria-label="Email"><Mail size={17} /></a><a href="https://blobs.vusercontent.net/blob/CV%20Recommended%20Format%20mani-UzeAV99ImewRyYIAP9l8Q1KlD6Hs2m.pdf" target="_blank" rel="noreferrer" aria-label="Download CV"><Download size={17} /></a></div></footer>
