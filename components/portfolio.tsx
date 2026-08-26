@@ -18,7 +18,7 @@ export default function Portfolio() {
   const [activeProject, setActiveProject] = useState<(typeof projects)[number] | null>(null)
   const [introVisible, setIntroVisible] = useState(true)
   const [formStatus, setFormStatus] = useState('')
-  const submitContact = async (event: React.FormEvent<HTMLFormElement>) => { event.preventDefault(); setFormStatus('Sending...'); const form = new FormData(event.currentTarget); const response = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(Object.fromEntries(form)) }); setFormStatus(response.ok ? 'Message sent successfully.' : 'Delivery is not configured yet. Please use the email button.'); if (response.ok) event.currentTarget.reset() }
+  const submitContact = async (event: React.FormEvent<HTMLFormElement>) => { event.preventDefault(); const formElement = event.currentTarget; setFormStatus('Sending...'); const form = new FormData(formElement); const response = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(Object.fromEntries(form)) }); setFormStatus(response.ok ? 'Message sent successfully.' : 'Delivery is not configured yet. Please use the email button.'); if (response.ok) formElement.reset() }
 
   const copyEmail = async () => {
     await navigator.clipboard?.writeText(email)
