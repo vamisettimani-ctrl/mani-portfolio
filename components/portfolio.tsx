@@ -47,7 +47,7 @@ export default function Portfolio() {
           <div className="eyebrow"><span className="status-dot" /> Open to opportunities <span className="eyebrow-line" /></div>
           <h1>Building thoughtful<br /><em>digital systems.</em></h1>
           <p className="hero-copy">I&apos;m Mani Sai Sudheer — a Computer Science Engineering student who turns curious ideas into practical, human-centered technology.</p>
-          <div className="hero-actions"><a className="primary-button" href="#work">Explore my work <ArrowUpRight size={17} /></a><a className="text-link" href="#contact">Get in touch <span>↗</span></a></div>
+          <div className="hero-actions"><a className="primary-button" href="#work">Explore my work <ArrowUpRight size={17} /></a><a className="text-link" href="#contact">Get in touch <span>↗</span></a><a className="text-link resume-link" href="https://blobs.vusercontent.net/blob/CV%20Recommended%20Format%20mani-UzeAV99ImewRyYIAP9l8Q1KlD6Hs2m.pdf" target="_blank" rel="noreferrer" download="Mani-Sai-Sudheer-Resume.pdf"><Download size={16} /> Download resume</a></div>
           <div className="hero-index">01 <span>/</span> 04</div>
           <div className="hero-portrait">
             <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/professional%20pic-j0dnazyYUit8OzwMNiQT61Oicn8KvN.jpeg" alt="Mani Sai Sudheer in a professional suit" />
