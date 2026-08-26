@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Mani Kumar — Computer Science Engineer',
-  description: 'Portfolio of Mani Kumar, a Computer Science Engineering student building thoughtful digital systems and practical IoT experiences.',
+  title: 'Mani Sai Sudheer — Computer Science Engineer',
+  description: 'Portfolio of Mani Sai Sudheer, a Computer Science Engineering student building thoughtful digital systems and practical IoT experiences.',
   generator: 'v0.app',
 }
 

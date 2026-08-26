@@ -26,7 +26,7 @@ export default function Portfolio() {
   return (
     <div className={dark ? 'portfolio dark' : 'portfolio light'}>
       <header className="site-header">
-        <a href="#top" className="monogram" aria-label="Back to top">MK<span>.</span></a>
+        <a href="#top" className="monogram" aria-label="Back to top">MSS<span>.</span></a>
         <nav className={menuOpen ? 'nav-links open' : 'nav-links'} aria-label="Primary navigation">
           {nav.map((item) => <a key={item} href={`#${item.toLowerCase()}`} onClick={() => setMenuOpen(false)}>{item}</a>)}
           <a className="nav-cta" href={`mailto:${email}`}>Let&apos;s talk <ArrowUpRight size={15} /></a>
@@ -41,18 +41,18 @@ export default function Portfolio() {
         <section className="hero page-section">
           <div className="eyebrow"><span className="status-dot" /> Open to opportunities <span className="eyebrow-line" /></div>
           <h1>Building thoughtful<br /><em>digital systems.</em></h1>
-          <p className="hero-copy">I&apos;m Mani Kumar — a Computer Science Engineering student who turns curious ideas into practical, human-centered technology.</p>
+          <p className="hero-copy">I&apos;m Mani Sai Sudheer — a Computer Science Engineering student who turns curious ideas into practical, human-centered technology.</p>
           <div className="hero-actions"><a className="primary-button" href="#work">Explore my work <ArrowUpRight size={17} /></a><a className="text-link" href="#contact">Get in touch <span>↗</span></a></div>
           <div className="hero-index">01 <span>/</span> 04</div>
           <div className="hero-portrait">
-            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/professional%20pic-j0dnazyYUit8OzwMNiQT61Oicn8KvN.jpeg" alt="Mani Kumar in a professional suit" />
-            <span>Mani Kumar / CSE</span>
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/professional%20pic-j0dnazyYUit8OzwMNiQT61Oicn8KvN.jpeg" alt="Mani Sai Sudheer in a professional suit" />
+            <span>Mani Sai Sudheer / CSE</span>
           </div>
         </section>
 
         <section id="about" className="about page-section split-section">
           <div className="section-label"><span>01</span><span>About me</span></div>
-          <div className="section-content"><h2>Curiosity is my<br /><em>starting point.</em></h2><p>I&apos;m currently pursuing my degree in Computer Science Engineering, where I&apos;m learning to think in systems — from the first line of code to the final user experience.</p><p>My work sits at the intersection of software, hardware, and everyday life. I&apos;m especially drawn to projects that make technology feel a little more intuitive and a lot more useful.</p><div className="signature">MK <span>— Mani Kumar</span></div></div>
+          <div className="section-content"><h2>Curiosity is my<br /><em>starting point.</em></h2><p>I&apos;m currently pursuing my degree in Computer Science Engineering, where I&apos;m learning to think in systems — from the first line of code to the final user experience.</p><p>My work sits at the intersection of software, hardware, and everyday life. I&apos;m especially drawn to projects that make technology feel a little more intuitive and a lot more useful.</p><div className="signature">MK <span>— Mani Sai Sudheer</span></div></div>
         </section>
 
         <section id="work" className="work page-section">
@@ -65,7 +65,7 @@ export default function Portfolio() {
         <section id="contact" className="contact page-section"><div className="section-label"><span>04</span><span>Start a conversation</span></div><div className="contact-content"><h2>Have an idea?<br /><em>Let&apos;s make it real.</em></h2><p>Whether it&apos;s a project, an opportunity, or just a good conversation about technology — my inbox is open.</p><div className="contact-actions"><a className="primary-button" href={`mailto:${email}`}>Send me an email <Mail size={17} /></a><button className="copy-button" onClick={copyEmail}>{copied ? <Check size={16} /> : <Copy size={16} />} {copied ? 'Email copied' : 'Copy email'}</button></div></div></section>
       </main>
 
-      <footer><span>© {new Date().getFullYear()} Mani Kumar</span><span>Designed & built with intent.</span><div className="socials"><a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub"><Code2 size={17} /></a><a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"><BriefcaseBusiness size={17} /></a><a href={`mailto:${email}`} aria-label="Email"><Mail size={17} /></a><a href="https://blobs.vusercontent.net/blob/CV%20Recommended%20Format%20mani-UzeAV99ImewRyYIAP9l8Q1KlD6Hs2m.pdf" target="_blank" rel="noreferrer" aria-label="Download CV"><Download size={17} /></a></div></footer>
+      <footer><span>© {new Date().getFullYear()} Mani Sai Sudheer</span><span>Designed & built with intent.</span><div className="socials"><a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub"><Code2 size={17} /></a><a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"><BriefcaseBusiness size={17} /></a><a href={`mailto:${email}`} aria-label="Email"><Mail size={17} /></a><a href="https://blobs.vusercontent.net/blob/CV%20Recommended%20Format%20mani-UzeAV99ImewRyYIAP9l8Q1KlD6Hs2m.pdf" target="_blank" rel="noreferrer" aria-label="Download CV"><Download size={17} /></a></div></footer>
 
       {activeProject && <div className="modal-backdrop" role="presentation" onClick={() => setActiveProject(null)}><div className="project-modal" role="dialog" aria-modal="true" aria-labelledby="project-title" onClick={e => e.stopPropagation()}><button className="modal-close" onClick={() => setActiveProject(null)} aria-label="Close project details"><X /></button><div className="project-type">{activeProject.type}</div><h2 id="project-title">{activeProject.title}</h2><p>{activeProject.description}</p><div className="tag-row">{activeProject.tags.map(tag => <span key={tag}>{tag}</span>)}</div><a className="text-link" href="#contact" onClick={() => setActiveProject(null)}>Discuss a similar idea <ExternalLink size={15} /></a></div></div>}
     </div>
