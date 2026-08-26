@@ -44,6 +44,10 @@ export default function Portfolio() {
           <p className="hero-copy">I&apos;m Mani Kumar — a Computer Science Engineering student who turns curious ideas into practical, human-centered technology.</p>
           <div className="hero-actions"><a className="primary-button" href="#work">Explore my work <ArrowUpRight size={17} /></a><a className="text-link" href="#contact">Get in touch <span>↗</span></a></div>
           <div className="hero-index">01 <span>/</span> 04</div>
+          <div className="hero-portrait">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/professional%20pic-j0dnazyYUit8OzwMNiQT61Oicn8KvN.jpeg" alt="Mani Kumar in a professional suit" />
+            <span>Mani Kumar / CSE</span>
+          </div>
         </section>
 
         <section id="about" className="about page-section split-section">
